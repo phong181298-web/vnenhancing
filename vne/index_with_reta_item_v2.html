@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VNEnhancing – Online Coaching</title>
+<style>
+    :root{
+  --bg:#000000;
+  --card:#121212;
+  --border:#1f1f1f;
+  --text:#f1f1f1;
+  --muted:#9aa0a6;
+  --accent:#7fd3f7;
+}
+    *{box-sizing:border-box}
+    body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu;
+  background:#000000;
+  color:var(--text);
+
+  padding-bottom:160px;
+}
+    .container{
+      max-width:420px;
+      margin:0 auto;
+      padding:16px;
+    }
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:16px;
+    }
+    .brand{
+      background:#1c1f23;
+      padding:8px 14px;
+      border-radius:999px;
+      font-weight:600;
+      letter-spacing:.3px;
+    }
+    .cta{
+      background:var(--accent);
+      color:#000;
+      padding:10px 16px;
+      border-radius:999px;
+      font-weight:700;
+      text-decoration:none;
+      font-size:14px;
+    }
+    h1{
+      font-size:26px;
+      margin:12px 0 16px;
+    }
+    .card{
+      position:relative;
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:18px;
+      border:1px solid var(--border);
+      overflow:hidden;
+    }
+    .card:after{display:none;}
+    .subtitle{
+      color:var(--muted);
+      font-size:13px;
+      margin-bottom:6px;
+    }
+    .title{
+      font-size:20px;
+      font-weight:700;
+      margin-bottom:8px;
+    }
+    .desc{
+      font-size:14px;
+      line-height:1.5;
+      margin-bottom:14px;
+    }
+    .accordion-item{
+      border-top:1px solid var(--border);
+    }
+    .accordion-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:14px 0;
+      cursor:pointer;
+      font-weight:600;
+    }
+    .accordion-header span{
+      font-size:18px;
+      color:var(--accent);
+    }
+    .accordion-content{max-height:0;overflow:hidden;transition:max-height .25s ease;padding-bottom:0;font-size:14px;color:var(--muted);line-height:1.6;}
+    .accordion-item.open .accordion-content{padding-bottom:14px;}
+    .link-box{display:block;margin-top:12px;padding:12px 14px;border-radius:12px;background:#0f1720;border:1px solid var(--border);color:var(--accent);font-weight:800;text-decoration:none;text-align:center;}
+    .link-box a{
+      display:block;
+      color:var(--accent);
+      font-weight:600;
+      text-decoration:none;
+      word-break:break-all;
+    }
+  
+    .fab{
+      position:fixed;
+      right:16px;
+      bottom:16px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      z-index:999;
+    }
+    .fab a{
+      background:var(--accent);
+      color:#000;
+      text-decoration:none;
+      font-weight:800;
+      border-radius:999px;
+      padding:12px 14px;
+      box-shadow:0 10px 24px rgba(0,0,0,.35);
+      font-size:14px;
+      text-align:center;
+    }
+    .fab a.secondary{
+      background:#1c1f23;
+      color:var(--text);
+      border:1px solid var(--border);
+      font-weight:700;
+    }
+    .copy-btn{
+      margin-top:10px;
+      width:100%;
+      padding:10px 12px;
+      border-radius:10px;
+      border:1px solid var(--border);
+      background:#1c1f23;
+      color:var(--text);
+      font-weight:700;
+      cursor:pointer;
+    }
+    .copy-btn:active{ transform:scale(.99); }
+
+  
+  .brand-logo{display:flex;justify-content:center;align-items:center;margin:10px 0 6px;}
+  .brand-logo img{width:110px;max-width:110px;height:auto;display:block;}
+</style>
+</head>
+<body>
+<div class="brand-logo">
+<img alt="Vietnam Enhancement" onerror="(function(img){var tries=['logo%20vne1812.png','logo vne1812.png','logo-vne1812.png','logo.png','logo.webp'];var i=img.getAttribute('data-try')?parseInt(img.getAttribute('data-try')):0;if(i&lt;tries.length){img.setAttribute('data-try',i+1);img.src=tries[i];}})(this)" src="logo-vne1812.png"/>
+</div>
+<div class="container">
+<div class="topbar">
+<div class="brand">VNEnhancing</div>
+<a class="cta" href="#coaching">ONLINE COACHING</a>
+</div>
+<h1>💪 Online Coaching</h1>
+<div class="card" id="coaching">
+<div class="subtitle">VNEnhancing</div>
+<div class="title">Online Coaching Programs</div>
+<div class="desc">
+        Hello mọi người, bên mình có 3 hình thức coaching, bạn quan tâm dịch vụ nào ạ?
+      </div><div class="accordion"><div class="accordion-item"><div class="accordion-header">Natural Coaching<span>+</span></div><div class="accordion-content"><p>Coaching tập luyện &amp; dinh dưỡng hoàn toàn natural, VNE tập trung xây dựng sức khỏe nền tảng và body bền vững lâu dài.</p><ul><li>Set up lịch tập cá nhân hóa theo thể trạng &amp; mục tiêu</li><li>Xây dựng chế độ dinh dưỡng chi tiết, dễ áp dụng hằng ngày</li><li>Hướng dẫn sử dụng thực phẩm bổ sung đúng cách</li><li>Theo dõi &amp; điều chỉnh liên tục theo tiến trình thực tế</li></ul><p>👉 Phù hợp cho người muốn cải thiện an toàn, khoa học, lâu dài, không phụ thuộc peds hay đốt cháy giai đoạn.</p><a class="link-box" href="https://www.facebook.com/share/1CxyMx1asN/?mibextid=wwXIfr" rel="noopener" target="_blank">👉 Tư vấn ngay trên Facebook</a>
+
+  <div class="accordion-item">
+    <div class="accordion-header">Reta Fat Loss Coaching<span>+</span></div>
+    <div class="accordion-content">
+      <p>• Tư vấn sử dụng Reta cho người muốn giảm mỡ an toàn</p>
+      <a class="link-box" href="https://www.facebook.com/share/1CxyMx1asN/?mibextid=wwXIfr" target="_blank" rel="noopener">👉 Tư vấn ngay trên Facebook</a>
+    </div>
+  </div>
+</div></div><div class="accordion-item"><div class="accordion-header">Juice Coaching (On cycle nhưng không thi đấu)<span>+</span></div><div class="accordion-content"><p>Coaching dành cho người có mục tiêu on cycle nhưng không thi đấu, tập trung hiệu quả, an toàn, hồi phục lâu dài.</p><ul><li>Set up lịch tập phù hợp giai đoạn on cycle (on / cruise)</li><li>Dinh dưỡng tối ưu hiệu suất &amp; phục hồi theo từng phases</li><li>Hướng dẫn sử dụng PEDs &amp; supplement có kiểm soát</li><li>Theo dõi sức khỏe &amp; điều chỉnh liên tục để hạn chế rủi ro</li></ul><p>👉 Phù hợp cho người muốn tối ưu hình thể và muốn on cycle nhưng vẫn đặt sức khỏe lên hàng đầu, không chạy theo liều cao hay giáo án cực đoan.</p><a class="link-box" href="https://www.facebook.com/share/1CxyMx1asN/?mibextid=wwXIfr" rel="noopener" target="_blank">👉 Tư vấn ngay trên Facebook</a></div></div><div class="accordion-item"><div class="accordion-header">Contest Prep Coaching (coaching thi đấu)<span>+</span></div><div class="accordion-content"><p>Coaching thi đấu dành cho VĐV men’s physique / classic / bodybuilding, tập trung tối ưu condition &amp; chiến lược thi đấu.</p><ul><li>Lên kế hoạch prep &amp; peak week chi tiết theo từng giai đoạn</li><li>Carb manipulation, xử lý nước, điện giải để đạt form sắc nét nhất</li><li>Chiến lược thi đấu &amp; kế hoạch điều chỉnh phút chót theo thực tế ngày show</li></ul><p>👉 Phù hợp cho VĐV muốn bước lên sân khấu với form hoàn chỉnh, tự tin và kiểm soát tốt mọi biến số, không prep mù quáng hay xử lý cảm tính.</p><a class="link-box" href="https://www.facebook.com/share/1CxyMx1asN/?mibextid=wwXIfr" rel="noopener" target="_blank">👉 Tư vấn ngay trên Facebook</a></div></div></div>
+
+</div>
+
+<h1>🧠 Tư vấn trị liệu đúng cách, fix hormones</h1>
+<div class="card" id="hormones">
+  <div class="subtitle">VNEnhancing</div>
+  <div class="accordion">
+    <div class="accordion-item">
+      <div class="accordion-header">TRỊ LIỆU HORMONE ĐÚNG CÁCH AE CẦN BIẾT<span>+</span></div>
+      <div class="accordion-content">
+        <p><b>Không trị liệu ngay sau cycle nếu có dùng Deca / Tren</b><br/>
+        Hai chất này tồn lưu rất lâu trong cơ thể. Nếu trị liệu sớm, hormone nội sinh vẫn bị dìm xuống dù xét nghiệm ban đầu có đẹp.<br/>
+        👉 Khuyến nghị: chờ 6–12 tháng, trong thời gian đó duy trì TRT hoặc cruise để giữ hormone ổn định.</p>
+
+        <p><b>TRỊ LIỆU ĐÚNG CÁCH GỒM 2 GIAI ĐOẠN (KHÔNG ĐI CHUNG)</b></p>
+
+        <p><b>Giai đoạn 1: Phục hồi tinh hoàn</b><br/>
+        • Mục tiêu: duy trì & kích thích tinh hoàn sản xuất test và sinh tinh<br/>
+        • Thời gian: ~ 4 tuần</p>
+
+        <p><b>Giai đoạn 2: Đánh thức trục HPTA</b><br/>
+        • Mục tiêu: kích thích não & tuyến yên sản xuất hormone nội sinh<br/>
+        • Thời gian: ~ 8 tuần<br/>
+        👉 Không dùng chung với giai đoạn 1</p>
+
+        <p><b>SUPPLEMENT HỖ TRỢ TRỊ LIỆU</b></p>
+
+        <a class="link-box" href="https://www.facebook.com/share/1CxyMx1asN/?mibextid=wwXIfr" target="_blank" rel="noopener">👉 Tư vấn ngay trên Facebook</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+
+
+
+<div class="fab">
+<a href="https://www.facebook.com/share/1CxyMx1asN/?mibextid=wwXIfr" rel="noopener" target="_blank">💬 Chat Facebook</a>
+<a "="" class="secondary" href="zalo://chat?phone=0346355556" onclick="setTimeout(()=&gt;window.location.href='https://zalo.me/0346355556',500)" rel="noopener" target="_blank">📲 Chat Zalo</a>
+</div>
+<script>
+  const singleOpen = true; // giữ 1 mục mở trong mỗi nhóm accordion
+  const items = document.querySelectorAll('.accordion-item');
+
+  function closeItem(item){
+    item.classList.remove('open');
+    const content = item.querySelector('.accordion-content');
+    const symbol = item.querySelector('.accordion-header span');
+    if(content){ content.style.maxHeight = '0px'; }
+    if(symbol){ symbol.textContent = '+'; }
+  }
+
+  function openItem(item){
+    item.classList.add('open');
+    const content = item.querySelector('.accordion-content');
+    const symbol = item.querySelector('.accordion-header span');
+    if(symbol){ symbol.textContent = '-'; }
+    if(content){
+      content.style.maxHeight = content.scrollHeight + 'px';
+    }
+  }
+
+  items.forEach(item => {
+    const header = item.querySelector('.accordion-header');
+    header.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+
+      if(singleOpen){
+        const group = item.closest('.accordion');
+        if(group){
+          group.querySelectorAll('.accordion-item.open').forEach(i => {
+            if(i !== item) closeItem(i);
+          });
+        }
+      }
+
+      if(isOpen) closeItem(item);
+      else openItem(item);
+    });
+  });
+
+  window.addEventListener('resize', () => {
+    document.querySelectorAll('.accordion-item.open .accordion-content').forEach(content => {
+      content.style.maxHeight = content.scrollHeight + 'px';
+    });
+  });
+</script>
+</body>
+</html>
