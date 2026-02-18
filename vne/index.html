@@ -146,6 +146,38 @@
   
   .brand-logo{display:flex;justify-content:center;align-items:center;margin:10px 0 6px;}
   .brand-logo img{width:110px;max-width:110px;height:auto;display:block;}
+
+  .video-wrap{
+    margin: 14px 0 18px;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #000;
+    border: 1px solid rgba(255,255,255,.08);
+  }
+  .video-embed{
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    display: block;
+    border: 0;
+  }
+
+
+  .video-overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:16px;
+    font-weight:800;
+    color:#ffffff;
+    background:rgba(0,0,0,.55);
+    backdrop-filter: blur(2px);
+    cursor:pointer;
+    user-select:none;
+  }
+  .video-wrap{ position:relative; }
 </style>
 </head>
 <body>
@@ -175,6 +207,26 @@
       <div class="accordion-item">
         <div class="accordion-header">Tư vấn sử dụng Retatrutide giảm cân an toàn<span>+</span></div>
         <div class="accordion-content">
+
+
+<div class="video-wrap" id="retaVideoWrap">
+  <div class="video-overlay" id="retaVideoOverlay" role="button" tabindex="0" aria-label="Phát video có âm thanh">
+    ▶ Bấm để phát video có âm thanh
+  </div>
+  <iframe
+    id="retaYoutube"
+    class="video-embed"
+    src="" data-videoid="mIBJ2w7yNfQ"
+    title="Retatrutide video"
+    frameborder="0"
+    allow="autoplay; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+  ></iframe>
+</div>
+
+
+
           <p>Retatrutide là peptide thế hệ mới tác động đồng thời lên 3 thụ thể: GLP-1, GIP và glucagon, nên hiệu quả giảm mỡ mạnh và toàn diện hơn các thuốc GLP-1 thông thường.</p>
 <p><b>Lợi ích &amp; tác dụng chính trong giảm cân:</b></p>
 <ul>
@@ -280,5 +332,63 @@
     });
   });
 </script>
+
+<script>
+  // YouTube thường CHẶN autoplay có âm thanh nếu không có thao tác người dùng.
+  // Vì vậy: mở accordion sẽ HIỆN video + nút overlay; bấm vào overlay sẽ phát autoplay + loop có âm thanh.
+  const YT_BASE = "https://www.youtube.com/embed/mIBJ2w7yNfQ";
+  const YT_PARAMS_SOUND = "autoplay=1&loop=1&playlist=mIBJ2w7yNfQ&playsinline=1&rel=0&modestbranding=1";
+
+  function playRetaWithSound() {
+      const iframe = document.getElementById('retaYoutube');
+      const overlay = document.getElementById('retaVideoOverlay');
+      const vid = iframe.getAttribute('data-videoid') || 'mIBJ2w7yNfQ';
+
+      // Build embed URL ONLY after user interaction (tap/click) so it can play with sound.
+      const params = new URLSearchParams({
+        autoplay: '1',
+        mute: '0',
+        loop: '1',
+        playlist: vid,
+        playsinline: '1',
+        rel: '0',
+        modestbranding: '1',
+        enablejsapi: '1',
+        origin: window.location.origin
+      });
+
+      iframe.src = `https://www.youtube-nocookie.com/embed/${vid}?${params.toString()}`;
+      overlay.style.display = 'none';
+    }
+
+  document.addEventListener('click', (e) => {
+    const header = e.target.closest('.accordion-header');
+    if(header){
+      const text = (header.textContent || '').toLowerCase();
+      if(text.includes('retatrutide')) {
+        // khi mở mục, chỉ refresh overlay/khung (không tự phát có âm thanh)
+        setTimeout(() => {
+          const overlay = document.getElementById('retaVideoOverlay');
+          if(overlay) overlay.style.display = "flex";
+        }, 50);
+      }
+    }
+
+    if(e.target && (e.target.id === 'retaVideoOverlay')){
+      playRetaWithSound();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter' || e.key === ' '){
+      const active = document.activeElement;
+      if(active && active.id === 'retaVideoOverlay'){
+        e.preventDefault();
+        playRetaWithSound();
+      }
+    }
+  });
+</script>
+
 </body>
 </html>
